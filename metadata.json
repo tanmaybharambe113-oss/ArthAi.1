@@ -1,0 +1,6 @@
+{
+  "name": "DhanGyan - Smart Finance Tracker with Money AI & Bade Bujurg",
+  "description": "Daily, weekly, monthly, and yearly expense tracking with intelligent daily limit alert (% over/under), visual analytics, Money AI chatbot, Bade Bujurg elder financial advisor, and Particle goal savings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

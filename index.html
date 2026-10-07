@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArthAI - Your Own Finance Tracker</title>
+    <meta name="description" content="ArthAI - Your Own Finance Tracker. Track daily expenses, tally records, analyze spending habits and financial goals." />
+    <meta property="og:title" content="ArthAI - Your Own Finance Tracker" />
+    <meta property="og:description" content="ArthAI - Your Own Finance Tracker. Track daily expenses, tally records, analyze spending habits and financial goals." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      // Cleanly filter any transient WebSocket / HMR connection notices in preview
+      (function() {
+        const origError = console.error;
+        console.error = function(...args) {
+          const str = args.map(a => (typeof a === 'string' ? a : (a && a.message) || '')).join(' ');
+          if (
+            str.includes('[vite] failed to connect to websocket') ||
+            str.includes('WebSocket closed without opened') ||
+            str.includes('WebSocket connection to') ||
+            str.includes('vite:ws')
+          ) {
+            return;
+          }
+          origError.apply(console, args);
+        };
+
+        const origWarn = console.warn;
+        console.warn = function(...args) {
+          const str = args.map(a => (typeof a === 'string' ? a : (a && a.message) || '')).join(' ');
+          if (str.includes('WebSocket') || str.includes('[vite]')) {
+            return;
+          }
+          origWarn.apply(console, args);
+        };
+
+        window.addEventListener('unhandledrejection', function(event) {
+          if (event.reason && String(event.reason).includes('WebSocket')) {
+            event.preventDefault();
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
